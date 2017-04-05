@@ -8,35 +8,36 @@ App({
   },
   getUserInfo:function(cb){
     var that = this
-    if(this.globalData.userInfo){
+    if(wx.getStorageSync('userInfo')){
+      this.globalData.userInfo = wx.getStorageSync('userInfo')
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
       //调用登录接口
-      wx.checkSession({
-        fail: function () {
-          wx.login({
-            success: function (data) {
-              if (data.code) {
-                wx.request({
-                  url: 'https://dev.xiadd.me/api/authenticate',
-                  data: {
-                    code: data.code
-                  },
-                  success: function(res){
-                    if (res.data.data) {
-                      wx.setStorageSync('token', res.data.data)
-                    }
-                  }
-                })
+      wx.login({
+        success: function (data) {
+          if (data.code) {
+            wx.request({
+              url: 'https://dev.xiadd.me/api/authenticate',
+              data: {
+                code: data.code
+              },
+              success: function(res){
+                if (res.data.data) {
+                  wx.setStorageSync('token', res.data.data)
+                } 
               }
-              wx.getUserInfo({
-                success: function (res) {
-                  that.globalData.userInfo = res.userInfo
-                  typeof cb == "function" && cb(that.globalData.userInfo)
-                }
-              })
+            })
+          }
+          wx.getUserInfo({
+            success: function (res) {
+              that.globalData.userInfo = res.userInfo
+              typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
+        }
+      })
+      wx.checkSession({
+        fail: function () {
         }
       })
     }
