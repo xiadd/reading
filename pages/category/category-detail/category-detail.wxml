@@ -1,0 +1,22 @@
+<view class="category-tag">
+    <view 
+    class="tag-item {{ selectedTag === item.value ? 'selected-active' : ''}}" 
+    wx:for="{{ categoryTag }}"
+    data-value='{{ item.value }}'
+    bindtap="changeTag"
+    wx:key="item.value">
+        {{ item.name }}
+    </view>
+</view>
+
+<view class="category-min">
+    <view class="min-item {{ selectedMin === item ? 'selected-active' : ''}}" 
+    wx:for="{{subCategories}}" 
+    data-value='{{ item }}'
+    bindtap="changeMin"
+    wx:key="item">
+        {{ item }}
+    </view>
+</view>
+
+<view class="category-info__container"></view>

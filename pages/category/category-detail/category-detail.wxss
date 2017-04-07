@@ -1,0 +1,14 @@
+.category-tag, .category-min {
+    padding: 10px;
+    border-bottom: 1px solid #eee
+}
+
+.tag-item, .min-item {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 14px;
+    color: #777
+}
+.selected-active {
+    color: #4ac9ff
+}

@@ -1,1 +1,49 @@
-<view class="classname">分类</view>
+<view class="male-category">
+
+    <text class="category-title">男生</text>
+
+    <view class="category-container">
+        <navigator 
+        class="category-item" 
+        wx:for="{{ categoriesWithBookCount.male }}" 
+        wx:key="{{ item.name }}"
+        url="/pages/category/category-detail/category-detail?category={{item.name}}&type=male">
+            <text class="category-name">{{ item.name }}</text>
+            <text class="category-book__count">共计{{ item.bookCount }}本</text>
+        </navigator>
+    </view>
+</view>
+
+<view class="female-category">
+
+    <text class="category-title">女生</text>
+
+    <view class="category-container">
+        <navigator 
+        class="category-item" 
+        wx:for="{{ categoriesWithBookCount.female }}" 
+        wx:key="{{ item.name }}"
+        url="/pages/category/category-detail/category-detail?category={{item.name}}&type=female">
+            <text class="category-name">{{ item.name }}</text>
+            <text class="category-book__count">共计{{ item.bookCount }}本</text>
+        </navigator>
+    </view>
+
+</view>
+
+<view class="press-category">
+
+    <text class="category-title">出版</text>
+
+    <view class="category-container">
+        <navigator 
+        class="category-item" 
+        wx:for="{{ categoriesWithBookCount.press }}" 
+        wx:key="{{ item.name }}"
+        url="/pages/category/category-detail/category-detail?category={{item.name}}&type=press">
+            <text class="category-name">{{ item.name }}</text>
+            <text class="category-book__count">共计{{ item.bookCount }}本</text>
+        </navigator>
+    </view>
+
+</view>

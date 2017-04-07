@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/category/category",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/rank/rank",
+    "pages/category/category-detail/category-detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -22,7 +24,7 @@
         "text": "首页"
       }, 
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/rank/rank",
         "text": "排名",
         "iconPath": "assets/icons/排名.png",
         "selectedIconPath": "assets/icons/排名_hover.png"
