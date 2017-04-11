@@ -1,0 +1,104 @@
+.book-info__container {
+    padding: 20px;
+}
+
+.book-base__info {
+    display: flex;   
+}
+
+.book-cover {
+    flex: 1;
+    height: 80px
+}
+
+.book-detail {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    overflow: hidden;
+    padding: 10px
+}
+
+.book-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+.author-tag {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #888
+}
+.time-updated {
+    font-size: 12px;
+    line-height: 3em;
+    color: #888
+}
+
+.book-action {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px
+}
+
+.book-action button {
+    flex: 1;
+}
+
+.add-to-shelf {
+    -webkit-appearance: none;
+    border: 1px solid #4ac9ff;
+    border-radius: 0;
+    background: none;
+    margin-right: 5px;
+    color: #4ac9ff
+}
+.add-to-shelf:after {
+    content: "";
+    width: 0;
+    height: 0
+}
+
+.start-reading {
+    -webkit-appearance: none;
+    background-color: #4ac9ff;
+    border-radius: 0;
+    color: #fff;
+    margin-left: 5px
+}
+.start-reading:after {
+    content: "";
+    width: 0;
+    height: 0
+}
+
+.book-details {
+    display: flex;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee
+}
+
+.book-reader, .book-status, .book-count {
+    flex: 1;
+    display: flex;
+    flex-direction: column
+}
+
+.info-title {
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.book-data {
+    color: #666;
+    font-size: 14px;
+    text-align: center
+}
+
+.book-intor {
+    padding: 20px 0;
+    font-size: 12px;
+    color: #444;
+    line-height: 2em
+}

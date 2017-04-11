@@ -5,7 +5,8 @@
     "pages/category/category",
     "pages/profile/profile",
     "pages/rank/rank",
-    "pages/category/category-detail/category-detail"
+    "pages/category/category-detail/category-detail",
+    "pages/book-info/book-info"
   ],
   "window":{
     "backgroundTextStyle":"light",

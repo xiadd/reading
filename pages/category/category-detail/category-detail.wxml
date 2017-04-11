@@ -19,4 +19,23 @@
     </view>
 </view>
 
-<view class="category-info__container"></view>
+<scroll-view class="category-info__container" scroll-y="true" bindscrolltolower="loadMore">
+    <navigator 
+    url="../../book-info/book-info?id={{ item._id }}"
+    class="book-info" 
+    wx:for="{{ bookList }}" 
+    wx:key="{{ item._id }}">
+        <image src="http://statics.zhuishushenqi.com{{ item.cover }}" mode="aspectFit" class="book-cover"></image>
+        <view class="book-detail">
+            <text class="book-title">{{ item.title }}</text>
+            <view class="author-tag">
+                <text>{{ item.author }}</text> | <text>{{ item.majorCate }}</text>
+            </view>
+            <view class="short-intro">{{ item.shortIntro}}</view>
+            <view src="book-data" >
+                <text class="book-follower">{{ item.latelyFollower }}人在追</text>  
+                <text class="book-recent">{{ item.retentionRatio }}% 读者留存</text>
+            </view>
+        </view>
+    </navigator>
+</scroll-view>

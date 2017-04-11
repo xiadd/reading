@@ -10,20 +10,28 @@ Page({
         ],
         subCategories: {},
         selectedTag: 'hot',
-        selectedMin: '全部'
+        selectedMin: '全部',
+        bookList: []
     },
     onLoad: function (options) {
         var that = this
+        this.setData({
+            options: options
+        })
         request('GET', '/sub-categories').then(function (res) {
             const mins = res.data[options.type].filter(v => v.major === options.category)[0].mins
             mins.unshift('全部')
             that.setData({
-                subCategories: mins,
-                options: options
+                subCategories: mins
             })
 
         }).catch(function (err) {
             console.error(err)
+        })
+        this.getCategoryInfo().then(res => {
+            this.setData({
+                bookList: res.data.books
+            })
         })
         wx.setNavigationBarTitle({
             title: options.category
@@ -45,8 +53,10 @@ Page({
         this.setData({
             selectedTag: data.value
         })
-        this.getCategoryInfo().then(function (res) {
-            console.log(res)
+        this.getCategoryInfo().then(res => {
+            this.setData({
+                bookList: res.data.books
+            })
         })
     },
     changeMin: function (e) {
@@ -54,8 +64,18 @@ Page({
         this.setData({
             selectedMin: data.value
         })
-        this.getCategoryInfo().then(function (res) {
-            console.log(res)
+        this.getCategoryInfo().then(res => {
+            this.setData({
+                bookList: res.data.books
+            })
+        })
+    },
+    loadMore: function (e) {
+        this.getCategoryInfo(this.data.bookList.length).then(res => {
+            const bookList = this.data.bookList
+            this.setData({
+                bookList: bookList.concat(res.data.books)
+            })
         })
     }
 })

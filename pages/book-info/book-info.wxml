@@ -1,0 +1,42 @@
+<view class="book-info__container">
+    <view class="book-base__info">
+        <image src="http://statics.zhuishushenqi.com{{ bookInfo.cover }}" mode="aspectFit" class="book-cover"></image>
+        <view class="book-detail">
+            <text class="book-title">{{ bookInfo.title }}</text>
+            <view class="author-tag">
+                <text style="color: #4ac9ff">{{ bookInfo.author }}</text> | 
+                <text>{{ bookInfo.cat }}</text> | 
+                <text>{{ bookInfo.wordCount/10000 }}万字</text>
+            </view>
+            <view class="time-updated">
+                <text>{{ bookInfo.updated }}更新</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="book-action">
+        <button class="add-to-shelf" data-id="{{ bookInfo._id }}" bindtap="addToShelfOrDeleteFromShelf">{{ isInShelf ? '不追了' : '追更新' }}</button>
+        <button class="start-reading">开始阅读</button>
+    </view>
+
+    <view class="book-details">
+        <view class="book-reader">
+            <text class="info-title">追书人数</text>
+            <text class="book-data">{{ bookInfo.latelyFollower }}</text>
+        </view>
+
+        <view class="book-status">
+            <text class="info-title">书籍状态</text>
+            <text class="book-data">{{ bookInfo.isSerial ? '连载中' : '已完结' }}</text>
+        </view>
+
+        <view class="book-count">
+            <text class="info-title">日更字数</text>
+            <text class="book-data">{{ bookInfo.serializeWordCount }}</text>
+        </view>
+    </view>
+
+    <view class="book-intor">
+        {{ bookInfo.longIntro }}
+    </view>
+</view>
