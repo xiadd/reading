@@ -6,4 +6,11 @@
 
 [koa](https://github.com/xiadd/zhuishushenqi)
 
+演示
+
 ![demo](https://ooo.0o0.ooo/2017/04/23/58fc43dd29072.gif)
+
+
+已完成功能
+
+书架 换源 阅读 切换章节 demo上有的未展示 换源这个功能只能说可以实现吧
