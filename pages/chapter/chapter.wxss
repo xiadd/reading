@@ -1,0 +1,14 @@
+.content-wrapper {
+    background: #eee6dd;
+    padding: 10px;
+    height: 100%;
+    line-height: 2em;
+    position: relative
+}
+
+.content-table {
+    height: 100%;
+    transform: translateX(500px);
+    position: absolute;
+    top: 0
+}

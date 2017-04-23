@@ -1,2 +1,29 @@
 <!--首页也就是书架-->
-<view class="book-shelf">书架</view>
+<view class="book-shelf">
+    <navigator 
+    url="../chapter/chapter?id={{item._id}}"
+    class="book {{ item.shake ? 'animated infinite tada' : '' }}" 
+    wx:for="{{ booksDetail }}" 
+    wx:key="{{ item._id }}" 
+    bindlongtap="deleteFromShelf"
+    data-id="{{ item._id }}" 
+    data-index="{{index}}">
+        <image src="http://statics.zhuishushenqi.com{{ item.cover }}" mode="aspectFit"></image>
+        <view class="book-info">{{ item.title }}</view>
+        <view class="mask" 
+        wx:if="{{ item.shake }}" 
+        data-id="{{ item._id }}" 
+        data-index="{{index}}" 
+        bindtap="confirmDelete">
+        删除
+        </view>
+        <view 
+        class="cancel-action" 
+        wx:if="{{ item.shake }}" 
+        data-id="{{ item._id }}" 
+        data-index="{{index}}"
+        bindtap="cancelAction">
+        ✔️
+        ️</view>
+    </navigator>
+</view>

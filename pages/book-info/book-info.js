@@ -42,10 +42,22 @@ Page({
                     this.setData({
                         isInShelf: true
                     })
+                    const books = wx.getStorageSync('books') || []
+                    books.push({
+                        id: id
+                    })
+                    wx.setStorageSync('books', books)
                 }
             })
         } else {
-
+            const id = this.data.bookId
+            request('DELETE', '/bookshelf', { _id: id }).then(res => {
+                if (res.code === 1) {
+                    this.setData({
+                        isInShelf: false
+                    })
+                }
+            })
         }
     }
 })

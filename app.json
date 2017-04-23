@@ -6,7 +6,8 @@
     "pages/profile/profile",
     "pages/rank/rank",
     "pages/category/category-detail/category-detail",
-    "pages/book-info/book-info"
+    "pages/book-info/book-info",
+    "pages/chapter/chapter"
   ],
   "window":{
     "backgroundTextStyle":"light",

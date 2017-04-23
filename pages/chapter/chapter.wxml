@@ -1,0 +1,8 @@
+<view class="content-wrapper" bindtap="showContentAndOtherEvents">
+    <view class="content-table">
+        <navigator url="../chapter/chapter?id={{ bookId }}&link={{ item.link }}" wx:for="{{ chapters}}" wx:key="item.id" open-type="redirect">{{ item.title }}</navigator>
+    </view>
+    <view class="content">
+        {{ chapterContent }}
+    </view>
+</view>
